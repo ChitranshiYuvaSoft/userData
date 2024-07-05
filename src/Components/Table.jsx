@@ -7,7 +7,7 @@ const Table = () => {
     const {allData} = useSelector(state=> state.data);
 
     return (
-        <table className="table py-4 overflow-y-scroll ">
+        <table className={allData.length !== 0 ? "table py-4 overflow-y-scroll  h-[25rem] " : "hidden table py-4 overflow-y-scroll  h-[25rem] " }>
             <thead className=''>
                 <tr>
                     <th scope="col">Sr. No.</th>
@@ -19,9 +19,9 @@ const Table = () => {
                     <th scope="col">Action</th>
                 </tr>
             </thead>
-            <tbody className='overflow-y-scroll'>
+            <tbody className=''>
                 {
-                    allData.map((data, index) => <TableData data={data} key={index}/>)
+                    allData.map((data, index) => <TableData data={data} key={index} index={index}/>)
                 }
             </tbody>
         </table>

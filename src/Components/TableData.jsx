@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux';
 import { editData, remove } from '../feature/data/dataSlice';
 
-const TableData = ({data}) => {
+const TableData = ({data, index}) => {
 
     const {id, name, note, email, language, hobby} = data;
     const dispatch = useDispatch();
@@ -19,7 +19,7 @@ const TableData = ({data}) => {
 
   return (
     <tr className='py-3 my-2 '>
-    <th scope="row">{id}</th>
+    <th scope="row">{index + 1}</th>
     <td>{name}</td>
     <td>{email}</td>
     <td>{note}</td>
